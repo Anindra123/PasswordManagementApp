@@ -11,11 +11,14 @@ Currently there is no way to install this application yet.
 
 Things i want to accomplish by making this project
 - Implement a 3 tier architecture
-- Design the UI of each forms
+⚒️ Design the UI of each forms
+    ✔️ Form design
+    ⚙️ Form navigation
+- Form Navigation
 - Create database
 - Allow user to create a master account
 - Allow user to sign in to their master account
 - Allow user to store password
 - Allow user to update password
-- Allow usser to delete password
-
+- Allow user to delete password
+- Release MVP
