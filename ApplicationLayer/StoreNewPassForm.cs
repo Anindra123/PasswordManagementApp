@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ApplicationLayer
 {
-    public partial class Form1 : Form
+    public partial class StoreNewPassForm : Form
     {
-        public Form1()
+        public StoreNewPassForm()
         {
             InitializeComponent();
         }
