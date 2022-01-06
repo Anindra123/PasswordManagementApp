@@ -11,9 +11,9 @@ Currently there is no way to install this application yet.
 
 Things i want to accomplish by making this project
 - Implement a 3 tier architecture
--⚒️ Design the UI of each forms
-    -✔️ Form design
-    -⚙️ Form navigation
+- ⚒️ Design the UI of each forms
+    - ✔️ Form design
+    - ⚙️ Form navigation
 - Form Navigation
 - Create database
 - Allow user to create a master account
