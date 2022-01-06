@@ -14,7 +14,7 @@ Things i want to accomplish by making this project
 - ⚒️ Design the UI of each forms
     - ✔️ Form design
     - ⚙️ Form navigation
-- Form Navigation
+- Form Validation
 - Create database
 - Allow user to create a master account
 - Allow user to sign in to their master account
