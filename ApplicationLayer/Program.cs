@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAcessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace ApplicationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            GlobalConfig.SetConnection(true);
             Application.Run(new UserDashBoardForm());
         }
     }

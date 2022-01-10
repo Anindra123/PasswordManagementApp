@@ -34,9 +34,9 @@ namespace ApplicationLayer
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.linkTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.savePassBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -85,30 +85,30 @@ namespace ApplicationLayer
             this.label4.TabIndex = 3;
             this.label4.Text = "Password ";
             // 
-            // textBox1
+            // titleTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(237, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(415, 30);
-            this.textBox1.TabIndex = 4;
+            this.titleTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.Location = new System.Drawing.Point(237, 80);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(415, 30);
+            this.titleTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // linkTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(237, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(415, 30);
-            this.textBox2.TabIndex = 5;
+            this.linkTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkTextBox.Location = new System.Drawing.Point(237, 125);
+            this.linkTextBox.Name = "linkTextBox";
+            this.linkTextBox.Size = new System.Drawing.Size(415, 30);
+            this.linkTextBox.TabIndex = 5;
             // 
-            // textBox3
+            // passwordTextBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(237, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(415, 30);
-            this.textBox3.TabIndex = 6;
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Location = new System.Drawing.Point(237, 169);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '●';
+            this.passwordTextBox.Size = new System.Drawing.Size(415, 30);
+            this.passwordTextBox.TabIndex = 6;
             // 
             // savePassBtn
             // 
@@ -124,6 +124,7 @@ namespace ApplicationLayer
             this.savePassBtn.TabIndex = 8;
             this.savePassBtn.Text = "Save";
             this.savePassBtn.UseVisualStyleBackColor = true;
+            this.savePassBtn.Click += new System.EventHandler(this.savePassBtn_Click);
             // 
             // cancelBtn
             // 
@@ -139,6 +140,7 @@ namespace ApplicationLayer
             this.cancelBtn.TabIndex = 9;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // StoreNewPassForm
             // 
@@ -148,9 +150,9 @@ namespace ApplicationLayer
             this.ClientSize = new System.Drawing.Size(685, 339);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.savePassBtn);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.linkTextBox);
+            this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -160,6 +162,7 @@ namespace ApplicationLayer
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StoreNewPassForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Store new password";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,9 +175,9 @@ namespace ApplicationLayer
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.TextBox linkTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button savePassBtn;
         private System.Windows.Forms.Button cancelBtn;
     }
