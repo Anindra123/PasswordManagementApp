@@ -15,12 +15,18 @@ Things i want to accomplish by making this project
     - ✔️ Form design
     - ⚙️ Form navigation
 - ⚒️ Form Validation
+     - ✔️ StorePassForm validation
+     - UpdatePassForm validation
+     - SignInForm validation
+     - SignUpForm validation
+     - UpdateMasterAccFrom validation
 - ✔️ Create database
 - ✔️ Create table for storing password
 - Create table for storing master account info
 - Allow user to create a master account
 - Allow user to sign in to their master account
-- Allow user to store password
+- ✔️ Allow user to store password
+- Allow user to view password
 - Allow user to update password
 - Allow user to delete password
 - Release MVP
