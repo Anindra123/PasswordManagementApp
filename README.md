@@ -10,12 +10,12 @@ Currently there is no way to install this application yet.
 ## RoadMap
 
 Things i want to accomplish by making this project
-- Implement a 3 tier architecture
+- ⚒️ Implement a 3 tier architecture
 - ⚒️ Design the UI of each forms
     - ✔️ Form design
     - ⚙️ Form navigation
-- Form Validation
-- Create database
+- ⚒️ Form Validation
+- ⚒️ Create database
 - Allow user to create a master account
 - Allow user to sign in to their master account
 - Allow user to store password
