@@ -60,8 +60,8 @@ Currently my application is designed like this :
 
 ## Dependencies & Libraries
 - .NET framework v4.8
-- [Dapper]("https://www.nuget.org/packages/Dapper/)
-- [Easy Crypto]("https://www.nuget.org/packages/EasyCrypto/")
+- [Dapper](https://www.nuget.org/packages/Dapper/)
+- [Easy Crypto](https://www.nuget.org/packages/EasyCrypto/)
 
 ## Extra Info
 This project is my contribution for the C# challege by IAmTimCorey 
