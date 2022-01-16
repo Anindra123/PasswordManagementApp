@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,9 +16,15 @@ namespace ApplicationLayer
 {
     public partial class StoreNewPassForm : Form
     {
+        MasterAccModel masterAcc;
         public StoreNewPassForm()
         {
             InitializeComponent();
+        }
+        public StoreNewPassForm(MasterAccModel masterAcc)
+        {
+            InitializeComponent();
+            this.masterAcc = masterAcc;
         }
         private bool ValidateForm()
         {
@@ -45,7 +52,7 @@ namespace ApplicationLayer
             {
                 PassAccModel passAccModel = new PassAccModel();
                 passAccModel.title = titleTextBox.Text.Trim();
-                passAccModel.password = passwordTextBox.Text.Trim();
+                passAccModel.password = EncryptPass.Encrypt(passwordTextBox.Text.Trim(), masterAcc.master_password);
                 passAccModel.link = linkTextBox.Text.Trim();
 
                 foreach (var db in GlobalConfig.dBConnections)

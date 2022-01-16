@@ -38,7 +38,7 @@ namespace ApplicationLayer
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.updateAccountBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.signOutBtn = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.viewSelectedPassBtn = new System.Windows.Forms.Button();
             this.deletePassBtn = new System.Windows.Forms.Button();
@@ -60,7 +60,7 @@ namespace ApplicationLayer
             this.toolStripSeparator1,
             this.updateAccountBtn,
             this.toolStripSeparator2,
-            this.toolStripButton1});
+            this.signOutBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1141, 126);
@@ -70,7 +70,7 @@ namespace ApplicationLayer
             // storeNewPassBtn
             // 
             this.storeNewPassBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeNewPassBtn.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.storeNewPassBtn.ForeColor = System.Drawing.Color.Aquamarine;
             this.storeNewPassBtn.Image = global::ApplicationLayer.Properties.Resources.add_1_icon;
             this.storeNewPassBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.storeNewPassBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -88,7 +88,7 @@ namespace ApplicationLayer
             // updateAccountBtn
             // 
             this.updateAccountBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateAccountBtn.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.updateAccountBtn.ForeColor = System.Drawing.Color.Aquamarine;
             this.updateAccountBtn.Image = global::ApplicationLayer.Properties.Resources.Male_user_edit_icon;
             this.updateAccountBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.updateAccountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -104,18 +104,19 @@ namespace ApplicationLayer
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 126);
             // 
-            // toolStripButton1
+            // signOutBtn
             // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.toolStripButton1.Image = global::ApplicationLayer.Properties.Resources.logout_icon;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(100, 123);
-            this.toolStripButton1.Text = "Sign Out";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.signOutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signOutBtn.ForeColor = System.Drawing.Color.Aquamarine;
+            this.signOutBtn.Image = global::ApplicationLayer.Properties.Resources.logout_icon;
+            this.signOutBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.signOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.signOutBtn.Name = "signOutBtn";
+            this.signOutBtn.Size = new System.Drawing.Size(100, 123);
+            this.signOutBtn.Text = "Sign Out";
+            this.signOutBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.signOutBtn.Click += new System.EventHandler(this.signOutBtn_Click);
             // 
             // panel1
             // 
@@ -144,6 +145,7 @@ namespace ApplicationLayer
             this.viewSelectedPassBtn.TabIndex = 10;
             this.viewSelectedPassBtn.Text = "View Selected";
             this.viewSelectedPassBtn.UseVisualStyleBackColor = true;
+            this.viewSelectedPassBtn.Click += new System.EventHandler(this.viewSelectedPassBtn_Click);
             // 
             // deletePassBtn
             // 
@@ -155,12 +157,13 @@ namespace ApplicationLayer
             this.deletePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletePassBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletePassBtn.ForeColor = System.Drawing.Color.White;
-            this.deletePassBtn.Location = new System.Drawing.Point(20, 192);
+            this.deletePassBtn.Location = new System.Drawing.Point(20, 184);
             this.deletePassBtn.Name = "deletePassBtn";
             this.deletePassBtn.Size = new System.Drawing.Size(213, 68);
             this.deletePassBtn.TabIndex = 9;
             this.deletePassBtn.Text = "Remove Selected";
             this.deletePassBtn.UseVisualStyleBackColor = true;
+            this.deletePassBtn.Click += new System.EventHandler(this.deletePassBtn_Click);
             // 
             // updatePassBtn
             // 
@@ -216,14 +219,16 @@ namespace ApplicationLayer
             this.passDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.passDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.passDataGridView.MultiSelect = false;
             this.passDataGridView.Name = "passDataGridView";
             this.passDataGridView.ReadOnly = true;
             this.passDataGridView.RowHeadersVisible = false;
             this.passDataGridView.RowHeadersWidth = 51;
             this.passDataGridView.RowTemplate.Height = 24;
+            this.passDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.passDataGridView.Size = new System.Drawing.Size(889, 618);
             this.passDataGridView.TabIndex = 0;
-            this.passDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.passDataGridView_CellFormatting);
+            this.passDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.passDataGridView_CellClick);
             // 
             // UserDashBoardForm
             // 
@@ -238,6 +243,7 @@ namespace ApplicationLayer
             this.Name = "UserDashBoardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserDashBoardForm_FormClosed);
             this.Load += new System.EventHandler(this.UserDashBoardForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -256,7 +262,7 @@ namespace ApplicationLayer
         private System.Windows.Forms.ToolStripButton storeNewPassBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton signOutBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button deletePassBtn;

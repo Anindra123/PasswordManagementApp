@@ -18,7 +18,7 @@ namespace ApplicationLayer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             GlobalConfig.SetConnection(true);
-            Application.Run(new UserDashBoardForm());
+            Application.Run(new StartForm());
         }
     }
 }

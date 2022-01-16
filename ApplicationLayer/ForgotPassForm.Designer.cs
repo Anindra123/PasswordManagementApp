@@ -40,7 +40,7 @@ namespace ApplicationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label3.ForeColor = System.Drawing.Color.Aquamarine;
             this.label3.Location = new System.Drawing.Point(22, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 23);

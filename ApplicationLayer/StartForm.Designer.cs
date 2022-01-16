@@ -39,9 +39,10 @@ namespace ApplicationLayer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Aquamarine;
             this.label1.Location = new System.Drawing.Point(127, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(548, 46);
+            this.label1.Size = new System.Drawing.Size(531, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Password Management Application";
             // 
@@ -59,6 +60,7 @@ namespace ApplicationLayer
             this.signInBtn.TabIndex = 1;
             this.signInBtn.Text = "Sign In";
             this.signInBtn.UseVisualStyleBackColor = true;
+            this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
             // quitBtn
             // 
@@ -74,6 +76,7 @@ namespace ApplicationLayer
             this.quitBtn.TabIndex = 2;
             this.quitBtn.Text = "Quit";
             this.quitBtn.UseVisualStyleBackColor = true;
+            this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
             // StartForm
             // 

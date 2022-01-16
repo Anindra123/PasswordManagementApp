@@ -12,6 +12,7 @@ namespace BussinessLogicLayer
         public string title { get; set; }
         public string link { get; set; }
         public string password { get; set; }
+        public int m_id { get; set; }
 
     }
 }

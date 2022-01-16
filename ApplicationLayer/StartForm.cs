@@ -16,5 +16,18 @@ namespace ApplicationLayer
         {
             InitializeComponent();
         }
+
+        private void signInBtn_Click(object sender, EventArgs e)
+        {
+            SignInForm signInForm = new SignInForm();
+            signInForm.Tag = this;
+            signInForm.Show(this);
+            Hide();
+        }
+
+        private void quitBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -45,10 +45,10 @@ namespace ApplicationLayer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label1.ForeColor = System.Drawing.Color.Aquamarine;
             this.label1.Location = new System.Drawing.Point(21, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 32);
+            this.label1.Size = new System.Drawing.Size(226, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Store Password For :";
             // 
@@ -56,7 +56,7 @@ namespace ApplicationLayer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label2.ForeColor = System.Drawing.Color.Aquamarine;
             this.label2.Location = new System.Drawing.Point(23, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 23);
@@ -67,7 +67,7 @@ namespace ApplicationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label3.ForeColor = System.Drawing.Color.Aquamarine;
             this.label3.Location = new System.Drawing.Point(23, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 23);
@@ -78,7 +78,7 @@ namespace ApplicationLayer
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label4.ForeColor = System.Drawing.Color.Aquamarine;
             this.label4.Location = new System.Drawing.Point(23, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 23);
