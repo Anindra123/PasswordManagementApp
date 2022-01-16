@@ -62,6 +62,7 @@ Currently my application is designed like this :
 - .NET framework v4.8
 - [Dapper](https://www.nuget.org/packages/Dapper/)
 - [Easy Crypto](https://www.nuget.org/packages/EasyCrypto/)
+- [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core/)
 
 ## Extra Info
 This project is my contribution for the C# challege by IAmTimCorey 
