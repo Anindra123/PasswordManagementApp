@@ -86,6 +86,12 @@ namespace ApplicationLayer
                 if(r == DialogResult.OK)
                 {
                     ResetFeilds();
+                    // sends the user back to the signinform
+                    // TODO:    consider creating a single method since this
+                    //          logic is being repeated in this file
+                    var form = (SignInForm)Tag;
+                    form.Show();
+                    Close();
                 }
             }
         }
