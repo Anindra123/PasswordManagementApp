@@ -15,5 +15,7 @@ namespace DataAcessLayer
         void SignUp(MasterAccModel masterAcc);
         MasterAccModel SignIn(string mail, string password);
         PassAccModel GetAccInfo(PassAccModel passAcc);
+        bool VerifySignUp(MasterAccModel masterAcc);
+        bool VerifyStorePass(PassAccModel passAcc);
     }
 }

@@ -79,5 +79,39 @@ namespace DataAcessLayer
                 return output as PassAccModel;
             }
         }
+
+        public bool VerifySignUp(MasterAccModel masterAcc)
+        {
+            bool output = false;
+            using(IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                var acclist = conn.Query<MasterAccModel>("select * from masteracctbl where firstname = @firstname or lastname = @lastname or email = @email or master_password = @master_password", masterAcc).ToList();
+                
+                if(acclist.Count > 0)
+                {
+                    output = true;
+                }
+            }
+            return output;
+        }
+
+        public bool VerifyStorePass(PassAccModel passAcc)
+        {
+            bool output = false;
+            var parameters = new Dictionary<string, object>
+            {
+                {"@title",passAcc.title.ToLower()},
+            };
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                var acclist = conn.Query<MasterAccModel>("select * from passacctbl where lower(title) = @title", parameters).ToList();
+
+                if (acclist.Count > 0)
+                {
+                    output = true;
+                }
+            }
+            return output;
+        }
     }
 }

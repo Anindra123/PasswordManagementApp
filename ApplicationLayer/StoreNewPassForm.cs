@@ -55,14 +55,26 @@ namespace ApplicationLayer
                 passAccModel.password = EncryptPass.Encrypt(passwordTextBox.Text.Trim(), masterAcc.master_password);
                 passAccModel.link = linkTextBox.Text.Trim();
 
+                var duplicateAcc = false;
                 foreach (var db in GlobalConfig.dBConnections)
                 {
-                    db.StorePass(passAccModel);
+                    duplicateAcc = db.VerifyStorePass(passAccModel);
                 }
-                DialogResult r = MessageBox.Show("Password stored sucessfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (r == DialogResult.OK)
+                if (!duplicateAcc)
                 {
-                    Close();
+                    foreach (var db in GlobalConfig.dBConnections)
+                    {
+                        db.StorePass(passAccModel);
+                    }
+                    DialogResult r = MessageBox.Show("Password stored sucessfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (r == DialogResult.OK)
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("A password for this account is already saved.Please save password for a different account.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

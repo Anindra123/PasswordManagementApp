@@ -78,20 +78,33 @@ namespace ApplicationLayer
                 masterAcc.email = emailTextBox.Text.Trim();
                 masterAcc.master_password = HashPasswordLogic.HashPass(passwordTextBox.Text.Trim());
 
+                bool multipleAcc = false;
                 foreach (var db in GlobalConfig.dBConnections)
                 {
-                    db.SignUp(masterAcc);
+                    multipleAcc = db.VerifySignUp(masterAcc);
                 }
-                DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(r == DialogResult.OK)
+                if (!multipleAcc)
                 {
+                    foreach (var db in GlobalConfig.dBConnections)
+                    {
+                        db.SignUp(masterAcc);
+                    }
+                    DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (r == DialogResult.OK)
+                    {
+                        ResetFeilds();
+                        // sends the user back to the signinform
+                        // TODO:    consider creating a single method since this
+                        //          logic is being repeated in this file
+                        var form = (SignInForm)Tag;
+                        form.Show();
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("An account with same firstname/lastname/email/password already exist.Try again", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ResetFeilds();
-                    // sends the user back to the signinform
-                    // TODO:    consider creating a single method since this
-                    //          logic is being repeated in this file
-                    var form = (SignInForm)Tag;
-                    form.Show();
-                    Close();
                 }
             }
         }
