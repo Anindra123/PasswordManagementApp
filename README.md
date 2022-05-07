@@ -1,4 +1,4 @@
-<h1 style="text-align:center"> 🔑Fast Pass</h1>
+<h1 align="center">🔑FastPass</h1>
 A password management application made with winforms and C# to better store and handle passwords.This application will allows user to store their passwords locally on their machine so they can use unique passwords for different websites.
 
 
