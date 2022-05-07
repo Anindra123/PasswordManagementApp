@@ -11,11 +11,10 @@ namespace DataAcessLayer
     {
         public static List<IDataConnection> dBConnections { get; private set; } = new List<IDataConnection>();
 
-        public static void SetConnection(bool sqlight)
+        public static void SetConnection(bool sqlight,IDataConnection sql)
         {
             if (sqlight)
             {
-                SQLiteConnector sql = new SQLiteConnector();
                 dBConnections.Add(sql);
             }
 

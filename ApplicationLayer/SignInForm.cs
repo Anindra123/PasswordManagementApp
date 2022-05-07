@@ -15,7 +15,8 @@ namespace ApplicationLayer
 {
     public partial class SignInForm : Form
     {
-        bool login = false;
+        
+        readonly bool login = false;
         public MasterAccModel MasterAcc { get; private set; } = null;
         public SignInForm()
         {
@@ -79,14 +80,16 @@ namespace ApplicationLayer
         {
             if (ValidateForm())
             {
-                foreach(var db in GlobalConfig.dBConnections)
+                /*foreach(var db in GlobalConfig.dBConnections)
                 {
                   MasterAcc = db.SignIn(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
-                }
+                }*/
+                SQLiteConnector db = new SQLiteConnector();
+                MasterAcc = db.SignIn(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
                 
                 if(MasterAcc != null && login == true)
                 {
-                   DialogResult r = MessageBox.Show("Logged in sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult r = MessageBox.Show("Logged in sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if(r == DialogResult.OK)
                     {
                         Close();
@@ -118,6 +121,14 @@ namespace ApplicationLayer
                 Close();
            }
             Close();
+        }
+
+        private void forgotPassLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassForm forgotPassForm = new ForgotPassForm();
+            forgotPassForm.Tag = this;
+            forgotPassForm.Show(this);
+            Hide();
         }
     }
 }

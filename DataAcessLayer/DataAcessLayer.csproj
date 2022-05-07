@@ -52,14 +52,9 @@
   <ItemGroup>
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="IDataConnection.cs" />
+    <Compile Include="MasterAccModel.cs" />
+    <Compile Include="PassAccModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLiteConnector.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BussinessLogicLayer\BussinessLogicLayer.csproj">
-      <Project>{2fbd34c8-9069-4738-b945-2142eaf7d09a}</Project>
-      <Name>BussinessLogicLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbo\PassManagerDB.db">

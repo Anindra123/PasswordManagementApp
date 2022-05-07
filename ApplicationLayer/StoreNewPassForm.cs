@@ -16,7 +16,7 @@ namespace ApplicationLayer
 {
     public partial class StoreNewPassForm : Form
     {
-        MasterAccModel masterAcc;
+        readonly MasterAccModel masterAcc;
         public StoreNewPassForm()
         {
             InitializeComponent();
@@ -29,16 +29,16 @@ namespace ApplicationLayer
         private bool ValidateForm()
         {
             bool output = true;
-            string urlPattern = @"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)";
-            string mailPattern = @"^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+           /* string urlPattern = @"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)";
+            string mailPattern = @"^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";*/
             if (string.IsNullOrWhiteSpace(titleTextBox.Text.Trim())
                 || string.IsNullOrWhiteSpace(passwordTextBox.Text.Trim()))
             {
                 output = false;
             }
             if (!string.IsNullOrWhiteSpace(linkTextBox.Text.Trim())
-                && (!Regex.IsMatch(linkTextBox.Text.Trim(), urlPattern) &&
-                    !Regex.IsMatch(linkTextBox.Text.Trim(), mailPattern))
+                && (!Regex.IsMatch(linkTextBox.Text.Trim(), Patterns.MailPattern) &&
+                    !Regex.IsMatch(linkTextBox.Text.Trim(), Patterns.UrlPattern))
                 )
             {
                 output = false;
@@ -55,18 +55,23 @@ namespace ApplicationLayer
                 passAccModel.password = EncryptPass.Encrypt(passwordTextBox.Text.Trim(), masterAcc.master_password);
                 passAccModel.link = linkTextBox.Text.Trim();
 
-                var duplicateAcc = false;
-                foreach (var db in GlobalConfig.dBConnections)
+                bool duplicateAcc = false;
+                /*foreach (var db in GlobalConfig.dBConnections)
                 {
                     duplicateAcc = db.VerifyStorePass(passAccModel);
-                }
+                }*/
+                SQLiteConnector db = new SQLiteConnector();
+                duplicateAcc = db.VerifyStorePass(passAccModel);
                 if (!duplicateAcc)
                 {
-                    foreach (var db in GlobalConfig.dBConnections)
+                    /*foreach (var db in GlobalConfig.dBConnections)
                     {
                         db.StorePass(passAccModel);
-                    }
-                    DialogResult r = MessageBox.Show("Password stored sucessfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }*/
+                    /*SQLiteConnector db = new SQLiteConnector();*/
+                    db.StorePass(passAccModel);
+                    /*DialogResult r = MessageBox.Show("Password stored sucessfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                    DialogResult r = ValidationMessage.SucessMsgResult("Password stored sucessfully!");
                     if (r == DialogResult.OK)
                     {
                         Close();
@@ -74,12 +79,14 @@ namespace ApplicationLayer
                 }
                 else
                 {
-                    MessageBox.Show("A password for this account is already saved.Please save password for a different account.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    /* MessageBox.Show("A password for this account is already saved.Please save password for a different account.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);*/
+                    ValidationMessage.AlertMsg("A password for this account is already saved.Please save password for a different account.");
                 }
             }
             else
             {
-                MessageBox.Show("Form data given is invalid. Please check and try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                /*MessageBox.Show("Form data given is invalid. Please check and try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);*/
+                ValidationMessage.AlertMsg("Form data given is invalid. Please check and try again.");
             }
         }
 

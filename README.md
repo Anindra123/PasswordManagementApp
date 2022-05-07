@@ -1,4 +1,4 @@
-# PasswordManagementApp
+<h1 style="text-align:center"> 🔑Fast Pass</h1>
 A password management application made with winforms and C# to better store and handle passwords.This application will allows user to store their passwords locally on their machine so they can use unique passwords for different websites.
 
 
@@ -9,10 +9,13 @@ Currently there is no way to install this application yet.
 
 ## RoadMap
 
-Things i want to accomplish by making this project
-- ✔️ Implement a 3 tier architecture
-- ⚒️ Design the UI of each forms
-    - ✔️ Form design
+
+<details>
+ <summary>Pre-mvp development</summary>
+
+ - ✔️ Implement a 3 tier architecture
+ - ⚒️ Design the UI of each forms
+     - ⚒️ Form design
     - ⚙️ Form navigation
 - ⚒️ Form Validation
      - ✔️ StorePassForm validation
@@ -30,6 +33,8 @@ Things i want to accomplish by making this project
 - ⚒️ Allow user to update password
 - ✔️ Allow user to delete password
 - Release MVP
+
+</details>
 
 
 ## Contributing
@@ -55,14 +60,15 @@ Some of them are :
 
 Currently my application is designed like this :
 - All forms on ApplicationLayer
-- Datamodel and some encryption logic on BusinessLogicLayer
-- All sqlite and helper class for connecting to the database on the DataAcessLayer
+- Helper class to connect to database and some encryption logic on BusinessLogicLayer
+- Datamodel and some rest classes and inteface to commucating with database on the DataAcessLayer
 
 ## Dependencies & Libraries
 - .NET framework v4.8
 - [Dapper](https://www.nuget.org/packages/Dapper/)
 - [Easy Crypto](https://www.nuget.org/packages/EasyCrypto/)
 - [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core/)
+- [FluentEmail](https://www.nuget.org/packages/FluentEmail.Smtp/)
 
 ## Extra Info
-This project is my contribution for the C# challege by IAmTimCorey 
+This project was my contribution for the C# challege by IAmTimCorey 

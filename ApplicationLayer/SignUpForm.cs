@@ -21,11 +21,17 @@ namespace ApplicationLayer
             InitializeComponent();
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        public void ChangeForms(Control tag)
         {
-            var form = (SignInForm)Tag;
+            var form = tag;
             form.Show();
             Close();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+           
+            ChangeForms((SignInForm)Tag);
         }
         private void ResetFeilds()
         {
@@ -38,7 +44,7 @@ namespace ApplicationLayer
         private bool ValidateForm()
         {
             bool output = true;
-            string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
+            /*string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";*/
             if (string.IsNullOrWhiteSpace(firstNameTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(lastNameTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(emailTextBox.Text.Trim())||
@@ -49,7 +55,7 @@ namespace ApplicationLayer
                 MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
-            else if (!Regex.IsMatch(emailTextBox.Text.Trim(),mailPattern)){
+            else if (!Regex.IsMatch(emailTextBox.Text.Trim(),Patterns.MailPattern)){
 
                 MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
@@ -79,26 +85,24 @@ namespace ApplicationLayer
                 masterAcc.master_password = HashPasswordLogic.HashPass(passwordTextBox.Text.Trim());
 
                 bool multipleAcc = false;
-                foreach (var db in GlobalConfig.dBConnections)
+                SQLiteConnector db = new SQLiteConnector();
+                /*foreach (var db in GlobalConfig.dBConnections)
                 {
                     multipleAcc = db.VerifySignUp(masterAcc);
-                }
+                }*/
+                multipleAcc = db.VerifySignUp(masterAcc);
                 if (!multipleAcc)
                 {
-                    foreach (var db in GlobalConfig.dBConnections)
+                    /*foreach (var db in GlobalConfig.dBConnections)
                     {
                         db.SignUp(masterAcc);
-                    }
+                    }*/
+                    db.SignUp(masterAcc);
                     DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK)
                     {
                         ResetFeilds();
-                        // sends the user back to the signinform
-                        // TODO:    consider creating a single method since this
-                        //          logic is being repeated in this file
-                        var form = (SignInForm)Tag;
-                        form.Show();
-                        Close();
+                        ChangeForms((SignInForm)Tag);
                     }
                 }
                 else

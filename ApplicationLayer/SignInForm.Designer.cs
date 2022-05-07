@@ -91,6 +91,7 @@ namespace ApplicationLayer
             this.forgotPassLinkLabel.TabStop = true;
             this.forgotPassLinkLabel.Text = "Forgot Password";
             this.forgotPassLinkLabel.VisitedLinkColor = System.Drawing.Color.LightSeaGreen;
+            this.forgotPassLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPassLinkLabel_LinkClicked);
             // 
             // signUpLinkLabel
             // 
@@ -141,8 +142,8 @@ namespace ApplicationLayer
             // 
             // SignInForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AcceptButton = this.signInBtn;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(522, 353);

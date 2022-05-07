@@ -31,8 +31,8 @@ namespace ApplicationLayer
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPassForm));
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.signUpBtn = new System.Windows.Forms.Button();
+            this.sendPassTextBox = new System.Windows.Forms.TextBox();
+            this.sendPassBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,28 +47,29 @@ namespace ApplicationLayer
             this.label3.TabIndex = 3;
             this.label3.Text = "Enter email";
             // 
-            // textBox2
+            // sendPassTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(26, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(496, 30);
-            this.textBox2.TabIndex = 6;
+            this.sendPassTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendPassTextBox.Location = new System.Drawing.Point(26, 61);
+            this.sendPassTextBox.Name = "sendPassTextBox";
+            this.sendPassTextBox.Size = new System.Drawing.Size(579, 30);
+            this.sendPassTextBox.TabIndex = 6;
             // 
-            // signUpBtn
+            // sendPassBtn
             // 
-            this.signUpBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.signUpBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.signUpBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.signUpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signUpBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUpBtn.ForeColor = System.Drawing.Color.White;
-            this.signUpBtn.Location = new System.Drawing.Point(26, 125);
-            this.signUpBtn.Name = "signUpBtn";
-            this.signUpBtn.Size = new System.Drawing.Size(211, 51);
-            this.signUpBtn.TabIndex = 11;
-            this.signUpBtn.Text = "Send password on mail";
-            this.signUpBtn.UseVisualStyleBackColor = true;
+            this.sendPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.sendPassBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.sendPassBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.sendPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendPassBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendPassBtn.ForeColor = System.Drawing.Color.White;
+            this.sendPassBtn.Location = new System.Drawing.Point(26, 125);
+            this.sendPassBtn.Name = "sendPassBtn";
+            this.sendPassBtn.Size = new System.Drawing.Size(275, 51);
+            this.sendPassBtn.TabIndex = 11;
+            this.sendPassBtn.Text = "Send password on mail";
+            this.sendPassBtn.UseVisualStyleBackColor = true;
+            this.sendPassBtn.Click += new System.EventHandler(this.sendPassBtn_Click);
             // 
             // cancelBtn
             // 
@@ -78,22 +79,23 @@ namespace ApplicationLayer
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(381, 125);
+            this.cancelBtn.Location = new System.Drawing.Point(444, 125);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(141, 51);
             this.cancelBtn.TabIndex = 12;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // ForgotPassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(546, 211);
+            this.ClientSize = new System.Drawing.Size(617, 211);
             this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.signUpBtn);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.sendPassBtn);
+            this.Controls.Add(this.sendPassTextBox);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -102,6 +104,7 @@ namespace ApplicationLayer
             this.Name = "ForgotPassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot Pass";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ForgotPassForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,8 +113,8 @@ namespace ApplicationLayer
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button signUpBtn;
+        private System.Windows.Forms.TextBox sendPassTextBox;
+        private System.Windows.Forms.Button sendPassBtn;
         private System.Windows.Forms.Button cancelBtn;
     }
 }

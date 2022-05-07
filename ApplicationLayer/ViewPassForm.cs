@@ -1,4 +1,5 @@
 ﻿using BussinessLogicLayer;
+using DataAcessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace ApplicationLayer
 {
     public partial class ViewPassForm : Form
     {
-        PassAccModel passAcc;
+        readonly PassAccModel passAcc;
         public ViewPassForm()
         {
             InitializeComponent();

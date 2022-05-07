@@ -14,7 +14,7 @@ namespace ApplicationLayer
 {
     public partial class UserDashBoardForm : Form
     {
-        MasterAccModel masterAcc;
+        readonly MasterAccModel masterAcc;
         public UserDashBoardForm()
         {
             InitializeComponent();
@@ -34,10 +34,13 @@ namespace ApplicationLayer
         {
             List<PassAccModel> passAccModels = null;
             passDataGridView.DataSource = null;
-            foreach (var db in GlobalConfig.dBConnections)
+            /*foreach (var db in GlobalConfig.dBConnections)
             {
                 passAccModels = db.GetPassAcc();
-            }
+            }*/
+            SQLiteConnector db = new SQLiteConnector();
+            passAccModels =  db.GetPassAcc();
+
             if (passAccModels != null)
             {
                 passDataGridView.DataSource = passAccModels;
@@ -75,7 +78,9 @@ namespace ApplicationLayer
 
         private void deletePassBtn_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Are you sure ?. This is going to delete all information of this stored password.", "Confimr", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            /*DialogResult r = MessageBox.Show("Are you sure ?. This is going to delete all information of this stored password.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);*/
+            string msg = "Are you sure ?. This is going to delete all information of this stored password.";
+            DialogResult r = ValidationMessage.QuestionMsg(msg);
             if(r == DialogResult.Yes)
             {
                 if (passDataGridView.SelectedRows.Count >= 1)
@@ -83,11 +88,13 @@ namespace ApplicationLayer
                     PassAccModel passAcc = passDataGridView.SelectedRows[0].DataBoundItem as PassAccModel;
                     if (passAcc != null)
                     {
-                        foreach (var db in GlobalConfig.dBConnections)
+                        /*foreach (var db in GlobalConfig.dBConnections)
                         {
                             db.RemovePass(passAcc);
-                        }
-                        r = MessageBox.Show("Password deleted sucessfully.");
+                        }*/
+                        SQLiteConnector db = new SQLiteConnector();
+                        db.RemovePass(passAcc);
+                        r = ValidationMessage.SucessMsgResult("Password deleted sucessfully");
                         if(r == DialogResult.OK)
                         {
                             ResetView();
@@ -133,10 +140,13 @@ namespace ApplicationLayer
                     {
                         PassAccModel passAcc = null;
                         var temp_data = passDataGridView.SelectedRows[0].DataBoundItem as PassAccModel;
-                        foreach( var db in GlobalConfig.dBConnections)
+                        /*foreach( var db in GlobalConfig.dBConnections)
                         {
                             passAcc = db.GetAccInfo(temp_data);
-                        }
+                        }*/
+                        SQLiteConnector db = new SQLiteConnector();
+                        passAcc = db.GetAccInfo(temp_data);
+
                         if (passAcc != null)
                         {
                             string e_pass = passAcc.password;

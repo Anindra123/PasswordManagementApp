@@ -17,7 +17,7 @@ namespace ApplicationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            GlobalConfig.SetConnection(true);
+            /*GlobalConfig.SetConnection(true);*/
             Application.Run(new StartForm());
         }
     }

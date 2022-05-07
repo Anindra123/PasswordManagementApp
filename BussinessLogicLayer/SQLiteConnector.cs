@@ -1,5 +1,5 @@
-﻿using BussinessLogicLayer;
-using Dapper;
+﻿using Dapper;
+using DataAcessLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,12 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcessLayer
+namespace BussinessLogicLayer
 {
     public class SQLiteConnector : IDataConnection
     {
+        public SQLiteConnector()
+        {
+            GlobalConfig.SetConnection(true, this);
+        }    
+
         public List<PassAccModel> GetPassAcc()
         {
+            
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
                 var output = conn.Query<PassAccModel>("select * from passacctbl", new DynamicParameters());
@@ -37,8 +43,8 @@ namespace DataAcessLayer
             }
 
         }
-        public MasterAccModel SignIn(string mail,string password)
-        { 
+        public MasterAccModel SignIn(string mail, string password)
+        {
             var parameters = new Dictionary<string, object>
             {
                 {"@email",mail },
@@ -55,14 +61,14 @@ namespace DataAcessLayer
                 {
                     return null;
                 }
-        
+
             }
         }
         public void SignUp(MasterAccModel masterAcc)
         {
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                conn.Execute("insert into MasterAccTBL (firstname,lastname,email,master_password) values (@firstname,@lastname,@email,@master_password)",masterAcc);
+                conn.Execute("insert into MasterAccTBL (firstname,lastname,email,master_password) values (@firstname,@lastname,@email,@master_password)", masterAcc);
             }
         }
 
@@ -83,11 +89,11 @@ namespace DataAcessLayer
         public bool VerifySignUp(MasterAccModel masterAcc)
         {
             bool output = false;
-            using(IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
                 var acclist = conn.Query<MasterAccModel>("select * from masteracctbl where firstname = @firstname or lastname = @lastname or email = @email or master_password = @master_password", masterAcc).ToList();
-                
-                if(acclist.Count > 0)
+
+                if (acclist.Count > 0)
                 {
                     output = true;
                 }
@@ -113,5 +119,28 @@ namespace DataAcessLayer
             }
             return output;
         }
+
+        public MasterAccModel ValidateMail(string mail)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                {"@email",mail },
+            };
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                try
+                {
+                    var output = conn.QuerySingle<MasterAccModel>("select * from MasterAccTBL where email = @email", new DynamicParameters(parameters));
+                    return output as MasterAccModel;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        
     }
 }
