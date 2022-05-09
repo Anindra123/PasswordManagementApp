@@ -58,7 +58,7 @@
             this.label2.ForeColor = System.Drawing.Color.Aquamarine;
             this.label2.Location = new System.Drawing.Point(28, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 31);
+            this.label2.Size = new System.Drawing.Size(230, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Website / app title :";
             // 
@@ -69,7 +69,7 @@
             this.label3.ForeColor = System.Drawing.Color.Aquamarine;
             this.label3.Location = new System.Drawing.Point(28, 174);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(243, 31);
+            this.label3.Size = new System.Drawing.Size(255, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Link/email (optional) :";
             // 
@@ -80,7 +80,7 @@
             this.label4.ForeColor = System.Drawing.Color.Aquamarine;
             this.label4.Location = new System.Drawing.Point(28, 245);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 31);
+            this.label4.Size = new System.Drawing.Size(129, 32);
             this.label4.TabIndex = 3;
             this.label4.Text = "Password :";
             // 
@@ -121,9 +121,9 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.Aquamarine;
-            this.titleLabel.Location = new System.Drawing.Point(251, 104);
+            this.titleLabel.Location = new System.Drawing.Point(277, 104);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(86, 31);
+            this.titleLabel.Size = new System.Drawing.Size(92, 32);
             this.titleLabel.TabIndex = 11;
             this.titleLabel.Text = "<title>";
             // 
@@ -132,9 +132,9 @@
             this.websiteLinkLabel.AutoSize = true;
             this.websiteLinkLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.websiteLinkLabel.ForeColor = System.Drawing.Color.Aquamarine;
-            this.websiteLinkLabel.Location = new System.Drawing.Point(277, 174);
+            this.websiteLinkLabel.Location = new System.Drawing.Point(304, 174);
             this.websiteLinkLabel.Name = "websiteLinkLabel";
-            this.websiteLinkLabel.Size = new System.Drawing.Size(83, 31);
+            this.websiteLinkLabel.Size = new System.Drawing.Size(88, 32);
             this.websiteLinkLabel.TabIndex = 12;
             this.websiteLinkLabel.Text = "<link>";
             // 
@@ -145,7 +145,7 @@
             this.passwordLabel.ForeColor = System.Drawing.Color.Aquamarine;
             this.passwordLabel.Location = new System.Drawing.Point(158, 245);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(146, 31);
+            this.passwordLabel.Size = new System.Drawing.Size(151, 32);
             this.passwordLabel.TabIndex = 13;
             this.passwordLabel.Text = "<password>";
             // 

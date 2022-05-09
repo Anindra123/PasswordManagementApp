@@ -65,9 +65,9 @@ namespace ApplicationLayer
             this.sendPassBtn.ForeColor = System.Drawing.Color.White;
             this.sendPassBtn.Location = new System.Drawing.Point(26, 125);
             this.sendPassBtn.Name = "sendPassBtn";
-            this.sendPassBtn.Size = new System.Drawing.Size(275, 51);
+            this.sendPassBtn.Size = new System.Drawing.Size(297, 51);
             this.sendPassBtn.TabIndex = 11;
-            this.sendPassBtn.Text = "Send password on mail";
+            this.sendPassBtn.Text = "Send verfication code on mail";
             this.sendPassBtn.UseVisualStyleBackColor = true;
             this.sendPassBtn.Click += new System.EventHandler(this.sendPassBtn_Click);
             // 

@@ -17,12 +17,16 @@ namespace BussinessLogicLayer
             GlobalConfig.SetConnection(true, this);
         }    
 
-        public List<PassAccModel> GetPassAcc()
+        public List<PassAccModel> GetPassAcc(int m_id)
         {
-            
+            var parameters = new Dictionary<string, object>
+            {
+                {"@m_id",m_id}
+            };
+
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                var output = conn.Query<PassAccModel>("select * from passacctbl", new DynamicParameters());
+                var output = conn.Query<PassAccModel>("select * from passacctbl where m_id = @m_id", new DynamicParameters(parameters));
                 return output.ToList();
             }
         }
@@ -31,7 +35,7 @@ namespace BussinessLogicLayer
         {
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                conn.Execute("insert into PassAccTBL (title,link,password) values(@title,@link,@password)", passAcc);
+                conn.Execute("insert into PassAccTBL (title,link,password,m_id) values(@title,@link,@password,@m_id)", passAcc);
             }
         }
 
@@ -39,7 +43,7 @@ namespace BussinessLogicLayer
         {
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                conn.Execute("delete from PassAccTBL where id = @id", passAcc);
+                conn.Execute("delete from PassAccTBL where id = @id and m_id = @m_id", passAcc);
             }
 
         }
@@ -72,16 +76,32 @@ namespace BussinessLogicLayer
             }
         }
 
-        public PassAccModel GetAccInfo(PassAccModel passAcc)
+        public PassAccModel GetAccInfo(PassAccModel passAcc,int m_id)
         {
             var parameters = new Dictionary<string, object>
             {
-                {"@id",passAcc.id }
+                {"@id",passAcc.id },
+                {"@m_id",m_id }
             };
 
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                var output = conn.QuerySingle<PassAccModel>("select * from passacctbl where id = @id", new DynamicParameters(parameters));
+                var output = conn.QuerySingle<PassAccModel>("select * from passacctbl where id = @id and m_id = @m_id", new DynamicParameters(parameters));
+                return output as PassAccModel;
+            }
+        }
+
+        public PassAccModel GetAccInfo(int pass_id,int m_id)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                {"@id",pass_id},
+                {"@m_id",m_id }
+            };
+
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                var output = conn.QuerySingle<PassAccModel>("select * from passacctbl where id = @id and m_id = @m_id", new DynamicParameters(parameters));
                 return output as PassAccModel;
             }
         }
@@ -107,10 +127,11 @@ namespace BussinessLogicLayer
             var parameters = new Dictionary<string, object>
             {
                 {"@title",passAcc.title.ToLower()},
+                {"@m_id",passAcc.m_id }
             };
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
-                var acclist = conn.Query<MasterAccModel>("select * from passacctbl where lower(title) = @title", parameters).ToList();
+                var acclist = conn.Query<MasterAccModel>("select * from passacctbl where m_id=@m_id and lower(title) = @title", parameters).ToList();
 
                 if (acclist.Count > 0)
                 {
@@ -124,7 +145,7 @@ namespace BussinessLogicLayer
         {
             var parameters = new Dictionary<string, object>
             {
-                {"@email",mail },
+                {"@email",mail }
             };
             using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
             {
@@ -141,6 +162,16 @@ namespace BussinessLogicLayer
             }
         }
 
-        
+        public void ResetMasterPass(int u_id,string mpass)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("u_id", u_id);
+            parameters.Add("mpass", mpass);
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                conn.Execute("update MasterAccTBL set master_password = @mpass where id = @u_id",parameters);
+            }
+
+        }
     }
 }

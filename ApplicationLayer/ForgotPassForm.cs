@@ -68,17 +68,34 @@ namespace ApplicationLayer
             if (ValidateForm())
             {
                 string mailText = sendPassTextBox.Text.Trim();
+                SendMessageView sendMessageView = new SendMessageView(mailText);
+               
+                sendMessageView.Show();
+
+                
+
+                int vcode = VerificationCodeGenerator.GenerateCode();
+                VerificationCodeForm verificationCodeForm = new VerificationCodeForm(vcode, masterAcc.id);
+                verificationCodeForm.Tag = this;
+                this.Hide();
+
                 try
                 {
-                    bool val = await MailService.SendMail(masterAcc);
-                    MessageBox.Show($"{val}");
+                    bool val = await MailService.SendMail(masterAcc, vcode);
+                    if (val == true)
+                    {
+                        sendMessageView.Close();
+                        verificationCodeForm.Show(this);
+                    }
                 }
-                catch(Exception)
+                catch (Exception)
                 {
+                    sendMessageView.Close();
                     ValidationMessage.AlertMsg("Error in sending verification code. Please try again later");
+                    ChangeForms((SignInForm)Tag);
                 }
-                
-            }   
+
+            }
         }
 
         private void ForgotPassForm_FormClosed(object sender, FormClosedEventArgs e)

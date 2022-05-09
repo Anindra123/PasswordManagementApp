@@ -34,16 +34,15 @@ namespace ApplicationLayer
         {
             List<PassAccModel> passAccModels = null;
             passDataGridView.DataSource = null;
-            /*foreach (var db in GlobalConfig.dBConnections)
-            {
-                passAccModels = db.GetPassAcc();
-            }*/
+            int count = 1;
             SQLiteConnector db = new SQLiteConnector();
-            passAccModels =  db.GetPassAcc();
+            passAccModels =  db.GetPassAcc(masterAcc.id);
 
             if (passAccModels != null)
             {
-                passDataGridView.DataSource = passAccModels;
+                passDataGridView.DataSource = passAccModels.Select(o => new { Sl = count++,Title = o.title,Link = o.link,Password = o.password,ID = o.id}).ToList();
+                passDataGridView.AutoGenerateColumns = false;
+                passDataGridView.Columns["ID"].Visible = false;
                 passDataGridView.ClearSelection();
 
             }
@@ -60,6 +59,7 @@ namespace ApplicationLayer
 
         private void storeNewPassBtn_Click(object sender, EventArgs e)
         {
+            DisableButton(false);
             StoreNewPassForm storeNewPass = new StoreNewPassForm(this.masterAcc);
             DialogResult r = storeNewPass.ShowDialog();
             if (r == DialogResult.Cancel)
@@ -78,27 +78,24 @@ namespace ApplicationLayer
 
         private void deletePassBtn_Click(object sender, EventArgs e)
         {
-            /*DialogResult r = MessageBox.Show("Are you sure ?. This is going to delete all information of this stored password.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);*/
             string msg = "Are you sure ?. This is going to delete all information of this stored password.";
             DialogResult r = ValidationMessage.QuestionMsg(msg);
             if(r == DialogResult.Yes)
             {
                 if (passDataGridView.SelectedRows.Count >= 1)
                 {
-                    PassAccModel passAcc = passDataGridView.SelectedRows[0].DataBoundItem as PassAccModel;
+                    int pass_id =(int)passDataGridView.SelectedRows[0].Cells[4].Value;
+                    SQLiteConnector db = new SQLiteConnector();
+                    PassAccModel passAcc = db.GetAccInfo(pass_id,masterAcc.id);
+
                     if (passAcc != null)
                     {
-                        /*foreach (var db in GlobalConfig.dBConnections)
-                        {
-                            db.RemovePass(passAcc);
-                        }*/
-                        SQLiteConnector db = new SQLiteConnector();
                         db.RemovePass(passAcc);
                         r = ValidationMessage.SucessMsgResult("Password deleted sucessfully");
-                        if(r == DialogResult.OK)
+                        if (r == DialogResult.OK)
                         {
                             ResetView();
-                            DisableButton(false); 
+                            DisableButton(false);
                         }
                     }
                 }
@@ -128,24 +125,19 @@ namespace ApplicationLayer
 
         private void viewSelectedPassBtn_Click(object sender, EventArgs e)
         {
-            SignInForm loginForm = new SignInForm(true);
+            SignInForm loginForm = new SignInForm(true,masterAcc.id);
             
             DialogResult r = loginForm.ShowDialog();
             if(r == DialogResult.Cancel)
             {
                 var output = loginForm.MasterAcc;
-                if(output is MasterAccModel)
+                if(output is MasterAccModel && output.id == masterAcc.id)
                 {
                    if(passDataGridView.SelectedRows.Count >= 1)
                     {
-                        PassAccModel passAcc = null;
-                        var temp_data = passDataGridView.SelectedRows[0].DataBoundItem as PassAccModel;
-                        /*foreach( var db in GlobalConfig.dBConnections)
-                        {
-                            passAcc = db.GetAccInfo(temp_data);
-                        }*/
+                        int pass_id = (int)passDataGridView.SelectedRows[0].Cells[4].Value;
                         SQLiteConnector db = new SQLiteConnector();
-                        passAcc = db.GetAccInfo(temp_data);
+                        PassAccModel passAcc = db.GetAccInfo(pass_id,masterAcc.id);
 
                         if (passAcc != null)
                         {
@@ -161,7 +153,10 @@ namespace ApplicationLayer
                         }
                     }
                 }
+               
             }
         }
+
+
     }
 }

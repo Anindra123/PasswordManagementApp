@@ -197,6 +197,7 @@
     <Compile Include="Patterns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnector.cs" />
+    <Compile Include="VerificationCodeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

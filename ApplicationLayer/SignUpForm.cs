@@ -52,22 +52,26 @@ namespace ApplicationLayer
                 string.IsNullOrWhiteSpace(cPasswordTextBox.Text.Trim())
                 )
             {
-                MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Text feild cannot be empty");
+                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
             else if (!Regex.IsMatch(emailTextBox.Text.Trim(),Patterns.MailPattern)){
 
-                MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Email is invalid");
+                //MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
             else if(passwordTextBox.Text.Trim().Length > 8)
             {
-                MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Password can be maximum 8 characters long");
+                //MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
             else if(passwordTextBox.Text.Trim() != cPasswordTextBox.Text.Trim())
             {
-                MessageBox.Show("Entered password doesn't match. Make sure you have entered the same password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Entered password doesn't match. Make sure you have entered the same password");
+                //MessageBox.Show("Entered password doesn't match. Make sure you have entered the same password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
 
@@ -98,7 +102,8 @@ namespace ApplicationLayer
                         db.SignUp(masterAcc);
                     }*/
                     db.SignUp(masterAcc);
-                    DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult r = ValidationMessage.SucessMsgResult("Signed Up sucessfully");
                     if (r == DialogResult.OK)
                     {
                         ResetFeilds();
@@ -107,7 +112,8 @@ namespace ApplicationLayer
                 }
                 else
                 {
-                    MessageBox.Show("An account with same firstname/lastname/email/password already exist.Try again", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ValidationMessage.AlertMsg("An account with same firstname/lastname/email/password already exist.Try again");
+                    //MessageBox.Show("An account with same firstname/lastname/email/password already exist.Try again", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ResetFeilds();
                 }
             }

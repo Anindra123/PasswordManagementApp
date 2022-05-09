@@ -13,7 +13,7 @@ namespace BussinessLogicLayer
 {
     public static class MailService
     {
-        public static async Task<bool> SendMail(MasterAccModel masterAcc)
+        public static async Task<bool> SendMail(MasterAccModel masterAcc,int vcode)
         {
             string pass = "blkbacbbhogdpioe";
             string senderEmail = "projmanagapp@gmail.com";
@@ -25,7 +25,12 @@ namespace BussinessLogicLayer
                 Credentials = new NetworkCredential(senderEmail, pass)
             });
 
-            string messageBody = $"Test";
+            string messageBody = $"Verification code for {masterAcc.email}: \n\n\n" +
+                $"Dear {masterAcc.firstname} {masterAcc.lastname}, \n" +
+                $"Your Verification code is : {vcode}. \n" +
+                $"Thank you for using our software. \n\n\n" +
+                $"------------------------------------------------------\n"+
+                $"Auto Generated Message. Do not reply to this message.";
 
             Email.DefaultSender = sender;
             var mail = await Email

@@ -54,6 +54,7 @@ namespace ApplicationLayer
                 passAccModel.title = titleTextBox.Text.Trim();
                 passAccModel.password = EncryptPass.Encrypt(passwordTextBox.Text.Trim(), masterAcc.master_password);
                 passAccModel.link = linkTextBox.Text.Trim();
+                passAccModel.m_id = masterAcc.id;
 
                 bool duplicateAcc = false;
                 /*foreach (var db in GlobalConfig.dBConnections)

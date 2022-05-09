@@ -17,6 +17,7 @@ namespace ApplicationLayer
     {
         
         readonly bool login = false;
+        readonly int curr_masterAccID;
         public MasterAccModel MasterAcc { get; private set; } = null;
         public SignInForm()
         {
@@ -31,6 +32,17 @@ namespace ApplicationLayer
             forgotPassLinkLabel.Visible = false;
             signUpLinkLabel.Visible = false;
             signInBtn.Text = "Log In";
+        }
+        public SignInForm(bool login,int curr_masterAccID)
+        {
+
+            InitializeComponent();
+            this.login = login;
+            this.Text = "Login";
+            forgotPassLinkLabel.Visible = false;
+            signUpLinkLabel.Visible = false;
+            signInBtn.Text = "Log In";
+            this.curr_masterAccID = curr_masterAccID;
         }
         private void signUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -47,22 +59,24 @@ namespace ApplicationLayer
         private bool ValidateForm()
         {
             bool output = true;
-            string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
+            //string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
             if (string.IsNullOrWhiteSpace(emailTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(passwordTextBox.Text.Trim()))
             {
-                MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Text feild cannot be empty");
+                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
-            else if (Regex.IsMatch(emailTextBox.Text.Trim(), mailPattern) == false)
+            else if (Regex.IsMatch(emailTextBox.Text.Trim(), Patterns.MailPattern) == false)
             {
-
-                MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Email is invalid");
+                //MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
             else if (passwordTextBox.Text.Trim().Length > 8)
             {
-                MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationMessage.AlertMsg("Password can be maximum 8 characters long");
+                //MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 output = false;
             }
             return output;
@@ -87,9 +101,9 @@ namespace ApplicationLayer
                 SQLiteConnector db = new SQLiteConnector();
                 MasterAcc = db.SignIn(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
                 
-                if(MasterAcc != null && login == true)
+                if(MasterAcc != null && login == true && curr_masterAccID == MasterAcc.id)
                 {
-                    DialogResult r = MessageBox.Show("Logged in sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult r = MessageBox.Show("User validated sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if(r == DialogResult.OK)
                     {
                         Close();

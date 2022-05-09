@@ -66,6 +66,12 @@
     <Compile Include="ResetPasswordForm.Designer.cs">
       <DependentUpon>ResetPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendMessageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMessageView.Designer.cs">
+      <DependentUpon>SendMessageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendMessageView.resx">
+      <DependentUpon>SendMessageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashBoardForm.resx">
       <DependentUpon>UserDashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerificationCodeForm.resx">
+      <DependentUpon>VerificationCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPassForm.resx">
       <DependentUpon>ViewPassForm.cs</DependentUpon>
@@ -177,6 +192,15 @@
       <Project>{33a2a491-7efb-4aa4-b2bf-d6e29256ade9}</Project>
       <Name>DataAcessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-mail-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FastPass-logos_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FastPass-logos.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
