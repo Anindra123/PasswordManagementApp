@@ -34,17 +34,19 @@ namespace ApplicationLayer
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashBoardForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.storeNewPassBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateAccountBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.signOutBtn = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.viewSelectedPassBtn = new System.Windows.Forms.Button();
             this.deletePassBtn = new System.Windows.Forms.Button();
             this.updatePassBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.passDataGridView = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.storeNewPassBtn = new System.Windows.Forms.ToolStripButton();
+            this.updateAccountBtn = new System.Windows.Forms.ToolStripButton();
+            this.viewAccountBtn = new System.Windows.Forms.ToolStripButton();
+            this.signOutBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,63 +62,24 @@ namespace ApplicationLayer
             this.toolStripSeparator1,
             this.updateAccountBtn,
             this.toolStripSeparator2,
+            this.viewAccountBtn,
+            this.toolStripSeparator3,
             this.signOutBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1141, 126);
+            this.toolStrip1.Size = new System.Drawing.Size(1141, 94);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // storeNewPassBtn
-            // 
-            this.storeNewPassBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeNewPassBtn.ForeColor = System.Drawing.Color.Aquamarine;
-            this.storeNewPassBtn.Image = global::ApplicationLayer.Properties.Resources.add_1_icon;
-            this.storeNewPassBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.storeNewPassBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.storeNewPassBtn.Name = "storeNewPassBtn";
-            this.storeNewPassBtn.Size = new System.Drawing.Size(168, 123);
-            this.storeNewPassBtn.Text = "Store new password";
-            this.storeNewPassBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.storeNewPassBtn.Click += new System.EventHandler(this.storeNewPassBtn_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 126);
-            // 
-            // updateAccountBtn
-            // 
-            this.updateAccountBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateAccountBtn.ForeColor = System.Drawing.Color.Aquamarine;
-            this.updateAccountBtn.Image = global::ApplicationLayer.Properties.Resources.Male_user_edit_icon;
-            this.updateAccountBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.updateAccountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.updateAccountBtn.Name = "updateAccountBtn";
-            this.updateAccountBtn.Size = new System.Drawing.Size(176, 123);
-            this.updateAccountBtn.Text = "Update your account";
-            this.updateAccountBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.updateAccountBtn.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.updateAccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 94);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 126);
-            // 
-            // signOutBtn
-            // 
-            this.signOutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signOutBtn.ForeColor = System.Drawing.Color.Aquamarine;
-            this.signOutBtn.Image = global::ApplicationLayer.Properties.Resources.logout_icon;
-            this.signOutBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.signOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.signOutBtn.Name = "signOutBtn";
-            this.signOutBtn.Size = new System.Drawing.Size(100, 123);
-            this.signOutBtn.Text = "Sign Out";
-            this.signOutBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.signOutBtn.Click += new System.EventHandler(this.signOutBtn_Click);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 94);
             // 
             // panel1
             // 
@@ -124,9 +87,9 @@ namespace ApplicationLayer
             this.panel1.Controls.Add(this.deletePassBtn);
             this.panel1.Controls.Add(this.updatePassBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(889, 126);
+            this.panel1.Location = new System.Drawing.Point(889, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 618);
+            this.panel1.Size = new System.Drawing.Size(252, 650);
             this.panel1.TabIndex = 1;
             // 
             // viewSelectedPassBtn
@@ -181,14 +144,15 @@ namespace ApplicationLayer
             this.updatePassBtn.TabIndex = 8;
             this.updatePassBtn.Text = "Update Selected";
             this.updatePassBtn.UseVisualStyleBackColor = true;
+            this.updatePassBtn.Click += new System.EventHandler(this.updatePassBtn_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.passDataGridView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 126);
+            this.panel2.Location = new System.Drawing.Point(0, 94);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(889, 618);
+            this.panel2.Size = new System.Drawing.Size(889, 650);
             this.panel2.TabIndex = 2;
             // 
             // passDataGridView
@@ -226,9 +190,70 @@ namespace ApplicationLayer
             this.passDataGridView.RowHeadersWidth = 51;
             this.passDataGridView.RowTemplate.Height = 24;
             this.passDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.passDataGridView.Size = new System.Drawing.Size(889, 618);
+            this.passDataGridView.Size = new System.Drawing.Size(889, 650);
             this.passDataGridView.TabIndex = 0;
             this.passDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.passDataGridView_CellClick);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 94);
+            // 
+            // storeNewPassBtn
+            // 
+            this.storeNewPassBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeNewPassBtn.ForeColor = System.Drawing.Color.Aquamarine;
+            this.storeNewPassBtn.Image = global::ApplicationLayer.Properties.Resources.key;
+            this.storeNewPassBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.storeNewPassBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.storeNewPassBtn.Name = "storeNewPassBtn";
+            this.storeNewPassBtn.Size = new System.Drawing.Size(168, 91);
+            this.storeNewPassBtn.Text = "Store new password";
+            this.storeNewPassBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.storeNewPassBtn.Click += new System.EventHandler(this.storeNewPassBtn_Click);
+            // 
+            // updateAccountBtn
+            // 
+            this.updateAccountBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateAccountBtn.ForeColor = System.Drawing.Color.Aquamarine;
+            this.updateAccountBtn.Image = global::ApplicationLayer.Properties.Resources.tools;
+            this.updateAccountBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.updateAccountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updateAccountBtn.Name = "updateAccountBtn";
+            this.updateAccountBtn.Size = new System.Drawing.Size(176, 91);
+            this.updateAccountBtn.Text = "Update your account";
+            this.updateAccountBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.updateAccountBtn.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.updateAccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.updateAccountBtn.Click += new System.EventHandler(this.updateAccountBtn_Click);
+            // 
+            // viewAccountBtn
+            // 
+            this.viewAccountBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.viewAccountBtn.ForeColor = System.Drawing.Color.Aquamarine;
+            this.viewAccountBtn.Image = global::ApplicationLayer.Properties.Resources.eye;
+            this.viewAccountBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.viewAccountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.viewAccountBtn.Name = "viewAccountBtn";
+            this.viewAccountBtn.Size = new System.Drawing.Size(155, 91);
+            this.viewAccountBtn.Text = "View Account Info";
+            this.viewAccountBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.viewAccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.viewAccountBtn.Click += new System.EventHandler(this.viewAccountBtn_Click);
+            // 
+            // signOutBtn
+            // 
+            this.signOutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signOutBtn.ForeColor = System.Drawing.Color.Aquamarine;
+            this.signOutBtn.Image = global::ApplicationLayer.Properties.Resources.power;
+            this.signOutBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.signOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.signOutBtn.Name = "signOutBtn";
+            this.signOutBtn.Size = new System.Drawing.Size(81, 91);
+            this.signOutBtn.Text = "Sign Out";
+            this.signOutBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.signOutBtn.Click += new System.EventHandler(this.signOutBtn_Click);
             // 
             // UserDashBoardForm
             // 
@@ -269,5 +294,7 @@ namespace ApplicationLayer
         private System.Windows.Forms.Button updatePassBtn;
         private System.Windows.Forms.Button viewSelectedPassBtn;
         private System.Windows.Forms.DataGridView passDataGridView;
+        private System.Windows.Forms.ToolStripButton viewAccountBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

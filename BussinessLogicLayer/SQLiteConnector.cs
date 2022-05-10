@@ -173,5 +173,21 @@ namespace BussinessLogicLayer
             }
 
         }
+
+        public void UpdatePass(PassAccModel passAcc)
+        {
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                conn.Execute("update PassAccTBL set title=@title,link=@link,password=@password where id = @id and m_id = @m_id", passAcc);
+            }
+        }
+
+        public void UpdateMasterAcc(MasterAccModel masterAcc)
+        {
+            using (IDbConnection conn = new SQLiteConnection(GlobalConfig.CnnString()))
+            {
+                conn.Execute("update MasterAccTBL set firstname=@firstname,lastname=@lastname where id = @id", masterAcc);
+            }
+        }
     }
 }

@@ -1,6 +1,15 @@
-<h1 align="center">🔑FastPass</h1>
-A password management application made with winforms and C# to better store and handle passwords.This application will allows user to store their passwords locally on their machine so they can use unique passwords for different websites.
-
+<table align="center">
+    <tr>
+        <td><p align="center"><img src="ApplicationLayer/Resources/FastPass-logos.jpeg" width="80" height="80"/></p>
+        </td>
+        <td>
+            <span style="font-size:3em">FastPass</span>
+        </td>
+    </tr>
+</table>
+A free and open source password management application made with winforms and C# for windows to better store and handle passwords.This application will allows user to store their passwords locally on their machine so they can use unique passwords for different websites.
+<br>
+<br>
 
 
 ## Installation instruction
@@ -14,15 +23,15 @@ Currently there is no way to install this application yet.
  <summary>Pre-mvp development</summary>
 
  - ✔️ Implement a 3 tier architecture
- - ⚒️ Design the UI of each forms
-     - ⚒️ Form design
-    - ⚙️ Form navigation
-- ⚒️ Form Validation
+ - ✔️ Design the UI of each forms
+     - ✔️ Form design
+     - ✔️ Form navigation
+- ✔️ Form Validation
      - ✔️ StorePassForm validation
-     - ⚒️ UpdatePassForm validation
+     - ✔️ UpdatePassForm validation
      - ✔️ SignInForm validation
      - ✔️ SignUpForm validation
-     - UpdateMasterAccFrom validation
+     - ✔️ UpdateMasterAccFrom validation
 - ✔️ Create database
 - ✔️ Create table for storing password
 - ✔️ Create table for storing master account info
@@ -30,9 +39,14 @@ Currently there is no way to install this application yet.
 - ✔️ Allow user to sign in to their master account
 - ✔️ Allow user to store password
 - ✔️ Allow user to view password
-- ⚒️ Allow user to update password
+- ✔️ Allow user to update password
 - ✔️ Allow user to delete password
 - Release MVP
+
+⚡ Extra features added :
+- Forgot password request with email verification
+- Update user account (only thier first name and last name)
+- View user account info
 
 </details>
 

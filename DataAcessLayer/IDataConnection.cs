@@ -19,5 +19,7 @@ namespace DataAcessLayer
         bool VerifyStorePass(PassAccModel passAcc);
         MasterAccModel ValidateMail(string mail);
         void ResetMasterPass(int u_id, string mpass);
+        void UpdatePass(PassAccModel passAcc);
+        void UpdateMasterAcc(MasterAccModel masterAcc);
     }
 }

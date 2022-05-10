@@ -30,7 +30,7 @@ namespace ApplicationLayer
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-           
+
             ChangeForms((SignInForm)Tag);
         }
         private void ResetFeilds()
@@ -44,34 +44,35 @@ namespace ApplicationLayer
         private bool ValidateForm()
         {
             bool output = true;
-            /*string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";*/
+
             if (string.IsNullOrWhiteSpace(firstNameTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(lastNameTextBox.Text.Trim()) ||
-                string.IsNullOrWhiteSpace(emailTextBox.Text.Trim())||
-                string.IsNullOrWhiteSpace(passwordTextBox.Text.Trim())||
+                string.IsNullOrWhiteSpace(emailTextBox.Text.Trim()) ||
+                string.IsNullOrWhiteSpace(passwordTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(cPasswordTextBox.Text.Trim())
                 )
             {
                 ValidationMessage.AlertMsg("Text feild cannot be empty");
-                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
-            else if (!Regex.IsMatch(emailTextBox.Text.Trim(),Patterns.MailPattern)){
+            else if (!Regex.IsMatch(emailTextBox.Text.Trim(), Patterns.MailPattern))
+            {
 
                 ValidationMessage.AlertMsg("Email is invalid");
-                //MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
-            else if(passwordTextBox.Text.Trim().Length > 8)
+            else if (passwordTextBox.Text.Trim().Length > 8)
             {
                 ValidationMessage.AlertMsg("Password can be maximum 8 characters long");
-                //MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
-            else if(passwordTextBox.Text.Trim() != cPasswordTextBox.Text.Trim())
+            else if (passwordTextBox.Text.Trim() != cPasswordTextBox.Text.Trim())
             {
                 ValidationMessage.AlertMsg("Entered password doesn't match. Make sure you have entered the same password");
-                //MessageBox.Show("Entered password doesn't match. Make sure you have entered the same password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
 
@@ -90,19 +91,13 @@ namespace ApplicationLayer
 
                 bool multipleAcc = false;
                 SQLiteConnector db = new SQLiteConnector();
-                /*foreach (var db in GlobalConfig.dBConnections)
-                {
-                    multipleAcc = db.VerifySignUp(masterAcc);
-                }*/
+
                 multipleAcc = db.VerifySignUp(masterAcc);
                 if (!multipleAcc)
                 {
-                    /*foreach (var db in GlobalConfig.dBConnections)
-                    {
-                        db.SignUp(masterAcc);
-                    }*/
+
                     db.SignUp(masterAcc);
-                    //DialogResult r = MessageBox.Show("Signed Up sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     DialogResult r = ValidationMessage.SucessMsgResult("Signed Up sucessfully");
                     if (r == DialogResult.OK)
                     {
@@ -113,7 +108,7 @@ namespace ApplicationLayer
                 else
                 {
                     ValidationMessage.AlertMsg("An account with same firstname/lastname/email/password already exist.Try again");
-                    //MessageBox.Show("An account with same firstname/lastname/email/password already exist.Try again", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                     ResetFeilds();
                 }
             }

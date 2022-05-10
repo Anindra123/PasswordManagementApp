@@ -15,7 +15,7 @@ namespace ApplicationLayer
 {
     public partial class SignInForm : Form
     {
-        
+
         readonly bool login = false;
         readonly int curr_masterAccID;
         public MasterAccModel MasterAcc { get; private set; } = null;
@@ -25,7 +25,7 @@ namespace ApplicationLayer
         }
         public SignInForm(bool login)
         {
-            
+
             InitializeComponent();
             this.login = login;
             this.Text = "Login";
@@ -33,7 +33,7 @@ namespace ApplicationLayer
             signUpLinkLabel.Visible = false;
             signInBtn.Text = "Log In";
         }
-        public SignInForm(bool login,int curr_masterAccID)
+        public SignInForm(bool login, int curr_masterAccID)
         {
 
             InitializeComponent();
@@ -59,31 +59,31 @@ namespace ApplicationLayer
         private bool ValidateForm()
         {
             bool output = true;
-            //string mailPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
+
             if (string.IsNullOrWhiteSpace(emailTextBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(passwordTextBox.Text.Trim()))
             {
                 ValidationMessage.AlertMsg("Text feild cannot be empty");
-                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
             else if (Regex.IsMatch(emailTextBox.Text.Trim(), Patterns.MailPattern) == false)
             {
                 ValidationMessage.AlertMsg("Email is invalid");
-                //MessageBox.Show("Email is invalid", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
             else if (passwordTextBox.Text.Trim().Length > 8)
             {
                 ValidationMessage.AlertMsg("Password can be maximum 8 characters long");
-                //MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 output = false;
             }
             return output;
         }
         private void SignInForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(login == false)
+            if (login == false)
             {
                 var form = (StartForm)Tag;
                 form.Show();
@@ -94,22 +94,19 @@ namespace ApplicationLayer
         {
             if (ValidateForm())
             {
-                /*foreach(var db in GlobalConfig.dBConnections)
-                {
-                  MasterAcc = db.SignIn(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
-                }*/
+
                 SQLiteConnector db = new SQLiteConnector();
                 MasterAcc = db.SignIn(emailTextBox.Text.Trim(), passwordTextBox.Text.Trim());
-                
-                if(MasterAcc != null && login == true && curr_masterAccID == MasterAcc.id)
+
+                if (MasterAcc != null && login == true && curr_masterAccID == MasterAcc.id)
                 {
                     DialogResult r = MessageBox.Show("User validated sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if(r == DialogResult.OK)
+                    if (r == DialogResult.OK)
                     {
                         Close();
                     }
                 }
-                else if(MasterAcc != null && login == false)
+                else if (MasterAcc != null && login == false)
                 {
                     MessageBox.Show("Logged in sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UserDashBoardForm userDashBoard = new UserDashBoardForm(MasterAcc);
@@ -128,12 +125,12 @@ namespace ApplicationLayer
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-           if(login == false)
-           {
+            if (login == false)
+            {
                 var form = (StartForm)Tag;
                 form.Show();
                 Close();
-           }
+            }
             Close();
         }
 

@@ -27,21 +27,13 @@ namespace ApplicationLayer
         public void GoToSignIn()
         {
             Close();
-            //var verficationCodeForm = (VerificationCodeForm)Tag;
-            //var forgetPassForm = (ForgotPassForm)verficationCodeForm.Tag;
-            //var signInForm = (SignInForm)forgetPassForm.Tag;
-
-            //verficationCodeForm.Close();
-            //forgetPassForm.Close();
-            //signInForm.Show();
-
+            
         }
         public void GoToSignInOnClose()
         {
             var verficationCodeForm = (VerificationCodeForm)Tag;
             var forgetPassForm = (ForgotPassForm)verficationCodeForm.Tag;
             var signInForm = (SignInForm)forgetPassForm.Tag;
-            //verficationCodeForm.Close();
             forgetPassForm.Close();
             signInForm.Show();
         }
@@ -54,13 +46,11 @@ namespace ApplicationLayer
                 string.IsNullOrWhiteSpace(cMasterPass))
             {
                 ValidationMessage.AlertMsg("Password feilds cannot be empty");
-                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 valid = false;
             }
             else if (nMasterPass.Length > 8)
             {
                 ValidationMessage.AlertMsg("Password can be maximum 8 characters long");
-                //MessageBox.Show("Password can be maximum 8 characters long", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 valid = false;
             }
             else if (nMasterPass != cMasterPass)

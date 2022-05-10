@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,16 +10,13 @@ using System.Windows.Forms;
 
 namespace ApplicationLayer
 {
-    public sealed class ValidationMessage:Form
+    public partial class ValidationMessage : Form
     {
-        public static void AlertMsg(string msg)
-        {
-            MessageBox.Show(msg, "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
 
-        public static void SucessMsg(string msg)
+        public static DialogResult QuestionMsg(string msg)
         {
-            MessageBox.Show(msg, "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show(msg, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return r;
         }
 
         public static DialogResult SucessMsgResult(string msg)
@@ -25,10 +25,17 @@ namespace ApplicationLayer
             return r;
         }
 
-        public static DialogResult QuestionMsg(string msg)
+        public static void AlertMsg(string msg)
         {
-           DialogResult r =  MessageBox.Show(msg, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            MessageBox.Show(msg,"Alert",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+        }
+
+        public static DialogResult SucessMsg(string msg)
+        {
+            DialogResult r = MessageBox.Show(msg, "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return r;
         }
+
     }
 }

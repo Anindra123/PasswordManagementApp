@@ -30,7 +30,6 @@ namespace ApplicationLayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StoreNewPassForm));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,18 +38,8 @@ namespace ApplicationLayer
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.savePassBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label1.Location = new System.Drawing.Point(21, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Store Password For :";
             // 
             // label2
             // 
@@ -142,13 +131,25 @@ namespace ApplicationLayer
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Aquamarine;
+            this.label5.Location = new System.Drawing.Point(21, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(235, 32);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Store Password For :";
+            // 
             // StoreNewPassForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AcceptButton = this.savePassBtn;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(685, 339);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.savePassBtn);
             this.Controls.Add(this.passwordTextBox);
@@ -157,7 +158,6 @@ namespace ApplicationLayer
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -171,8 +171,6 @@ namespace ApplicationLayer
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -181,5 +179,6 @@ namespace ApplicationLayer
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button savePassBtn;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Label label5;
     }
 }

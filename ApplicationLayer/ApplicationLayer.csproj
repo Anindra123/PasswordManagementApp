@@ -96,6 +96,18 @@
     <Compile Include="StoreNewPassForm.Designer.cs">
       <DependentUpon>StoreNewPassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateMasterAccForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateMasterAccForm.Designer.cs">
+      <DependentUpon>UpdateMasterAccForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePassForm.Designer.cs">
+      <DependentUpon>UpdatePassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserDashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +116,9 @@
     </Compile>
     <Compile Include="ValidationMessage.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidationMessage.Designer.cs">
+      <DependentUpon>ValidationMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="VerificationCodeForm.cs">
       <SubType>Form</SubType>
@@ -116,6 +131,12 @@
     </Compile>
     <Compile Include="ViewPassForm.Designer.cs">
       <DependentUpon>ViewPassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUserAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUserAccountForm.Designer.cs">
+      <DependentUpon>ViewUserAccountForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ForgotPassForm.resx">
       <DependentUpon>ForgotPassForm.cs</DependentUpon>
@@ -148,6 +169,12 @@
     <EmbeddedResource Include="StoreNewPassForm.resx">
       <DependentUpon>StoreNewPassForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateMasterAccForm.resx">
+      <DependentUpon>UpdateMasterAccForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePassForm.resx">
+      <DependentUpon>UpdatePassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserDashBoardForm.resx">
       <DependentUpon>UserDashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPassForm.resx">
       <DependentUpon>ViewPassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUserAccountForm.resx">
+      <DependentUpon>ViewUserAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -201,6 +231,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FastPass-logos.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />

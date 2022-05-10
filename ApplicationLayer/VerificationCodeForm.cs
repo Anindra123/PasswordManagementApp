@@ -33,7 +33,7 @@ namespace ApplicationLayer
             if (string.IsNullOrWhiteSpace(u_input))
             {
                 ValidationMessage.AlertMsg("Text feild cannot be empty");
-                //MessageBox.Show("Text feild cannot be empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
                 valid = false;
             }
             else if (int.TryParse(u_input, out val) == false)
