@@ -1,12 +1,5 @@
-<table align="center" border="0">
-    <tr>
-        <td><p align="center"><img src="ApplicationLayer/Resources/FastPass-logos.jpeg" width="80" height="80"/></p>
-        </td>
-        <td>
-            <span style="font-size:40px">FastPass</span>
-        </td>
-    </tr>
-</table>
+<p align="center"><img src="ApplicationLayer/Resources/FastPass-logos.jpeg" width="50" height="50"/></p>
+<h1 align="center">FastPass</h1>
 A free and open source password management application made with winforms and C# for windows to better store and handle passwords.This application will allows user to store their passwords locally on their machine so they can use unique passwords for different websites.
 <br>
 <br>
