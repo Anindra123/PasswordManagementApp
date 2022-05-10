@@ -1,9 +1,9 @@
-<table align="center">
+<table align="center" border="0">
     <tr>
         <td><p align="center"><img src="ApplicationLayer/Resources/FastPass-logos.jpeg" width="80" height="80"/></p>
         </td>
         <td>
-            <span style="font-size:3em">FastPass</span>
+            <span style="font-size:40px">FastPass</span>
         </td>
     </tr>
 </table>
